@@ -16,12 +16,12 @@ install:
 before_script:
   - psql -c 'create database "deployment-exercise-test";' -U postgres # remember to change this name if you change it elsewhere (e.g. package.json)
 
-# before_deploy:
-#   - npm run build-client # make the bundle
-#   - rm -rf node_modules # omit from the tarball, since we skip cleanup
-# deploy:
-#   skip_cleanup: true # prevents travis from deleting the build
-#   provider: heroku
-#   app: YOUR-HEROKU-APP-NAME-HERE # see README
-#   api_key:
-#     secure: YOUR-***ENCRYPTED***-API-KEY-HERE
+ before_deploy:
+   - npm run build-client # make the bundle
+   - rm -rf node_modules # omit from the tarball, since we skip cleanup
+ deploy:
+   skip_cleanup: true # prevents travis from deleting the build
+   provider: heroku
+   app: murmuring-citadel-47384 # see README
+   api_key:
+     secure: O43lNUFaJUQHHKqjaVWucrlpXWseQYB0HGR8CnvpSH+//ZpZY9nyawXdDwp2zPiO7qYKZG2PA5ecc7QQ1xH/62PpI+tGHreCefBmfZjPCPmfCGQ8UTKYYKpk03F4o+n1hj/J0mywRtvFxLjwG2NHKvuaauMbBzQtMa1hB1J//qRLnw5exvCuceX1hiNc4APvGauOekdZoPRuiGYBHk7jnx5nre8BjG61921qqTZBY23bumC01BV4u0Xed7WI95nRKGSBltkroUTd3BDTMnKDBhxi8mOjeinry/27bpumD8PnymfBSM1qunQhGVQrQ7aTrlpGMGgJJqN20lCv5P+q2lKZM2xmoKuhe2NxMNemSsFHeJKweKcd05IXWYz1IXjp/YhjkH2VJN22ViUGjbbQ9G9GUYL5gApT3rmL8oDsld2B1HJegGV27kvJEAhM4kKOuxtlnlJ7hzMs05qNxYlhLnjt4tZypT+tT5X4ECNwNl1XLlySiMqrl2YoAQq5sumXjIRZw200wr8nca7vkEcsDfnNddVOqq/Ul3XvakxOchwuzi/gHM3jwXgN9dxeToYquFSreK/57vrgs7ibecv9dzU6fMgIIDhrIRzglJCx4f+1hzS7khNjSM+Mq2f7qotdKqEGM6Do8f6W8RDteWYHxHWudTVwaYSijYgs8fA/30g=
